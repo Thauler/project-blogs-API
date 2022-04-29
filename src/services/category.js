@@ -20,6 +20,13 @@ const create = async ({ name }) => {
   return { code: 201, message: newCategory };
 };
 
+const findAll = async () => {
+  const getAll = await Category.findAll();
+
+  return { code: 200, message: getAll };
+};
+
 module.exports = {
   create,
+  findAll,
 };
