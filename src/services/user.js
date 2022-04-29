@@ -22,9 +22,15 @@ const validateBody = (body) =>
 
 const findAll = async () => {
   const getAll = await User.findAll();
-  console.log(getAll);
 
   return { code: 200, message: getAll };
+};
+
+const findByPk = async ({ id }) => {
+  const getById = await User.findByPk(id);
+  if (!getById) return { code: 404, message: { message: 'User does not exist' } };
+
+  return { code: 200, message: getById };
 };
 
 const create = async ({ displayName, email, password }) => {
@@ -44,4 +50,5 @@ const create = async ({ displayName, email, password }) => {
 module.exports = {
   create,
   findAll,
+  findByPk,
 };
