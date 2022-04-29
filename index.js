@@ -3,6 +3,7 @@ const express = require('express');
 const userRoute = require('./src/routes/user');
 const loginRoute = require('./src/routes/login');
 const categoryRoute = require('./src/routes/category');
+const blogpostRoute = require('./src/routes/blogpost');
 
 const app = express();
 
@@ -18,5 +19,7 @@ app.use('/user', userRoute);
 app.use('/login', loginRoute);
 
 app.use('/categories', categoryRoute);
+
+app.use('/post', blogpostRoute);
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));

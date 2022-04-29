@@ -10,6 +10,12 @@ const User = (sequelize, DataTypes) => {
     tablename: 'Users',
   });
 
+  UserAtt.associate = (models) => {
+    UserAtt.hasOne(models.BlogPost, {
+      foreignKey: 'userId', as: 'blogposts',
+    });
+  };
+
   return UserAtt;
 };
 
