@@ -20,6 +20,13 @@ const validateBody = (body) =>
     }),
   }).validate(body);
 
+const findAll = async () => {
+  const getAll = await User.findAll();
+  console.log(getAll);
+
+  return { code: 200, message: getAll };
+};
+
 const create = async ({ displayName, email, password }) => {
   const { error } = validateBody({ displayName, email, password });
 
@@ -36,4 +43,5 @@ const create = async ({ displayName, email, password }) => {
 
 module.exports = {
   create,
+  findAll,
 };
