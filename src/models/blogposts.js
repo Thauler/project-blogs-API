@@ -1,9 +1,10 @@
-const BlogPosts = (sequelize, DataTypes) => {
+const BlogPost = (sequelize, DataTypes) => {
   const BlogPostsAtt = sequelize.define('BlogPost', {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     published: DataTypes.DATEONLY,
     updated: DataTypes.DATEONLY,
+    userId: { type: DataTypes.INTEGER, foreingKey: true },
   }, {
     timestamps: false,
     tablename: 'BlogPosts',
@@ -15,4 +16,4 @@ const BlogPosts = (sequelize, DataTypes) => {
   return BlogPostsAtt;
 };
 
-module.exports = BlogPosts;
+module.exports = BlogPost;
